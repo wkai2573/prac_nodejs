@@ -5,7 +5,11 @@ const port = 5001;
 const client = require('./db'); // 導入 PostgreSQL 客戶
 
 
-app.get('/hello', (req, res) => {
+app.get('/', (req, res) => {
+	res.send('hello');
+});
+
+app.get('/json', (req, res) => {
 	res.send({a: 'b', c: 'd'});
 });
 
@@ -28,6 +32,8 @@ app.get('/users', (req, res) => {
 
 
 // 開始監聽端口
-app.listen(port, () => {
-	console.log(`Server is running on port ${port}`);
+const server = app.listen(port, () => {
+	// console.log(`Server is running on port ${port}`);
+	const serverUrl = `http://localhost:${server.address().port}`;
+  console.log(`Server is running on ${serverUrl}`);
 });
