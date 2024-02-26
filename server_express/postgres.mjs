@@ -3,7 +3,7 @@
 import pg from 'pg'
 
 // 設置資料庫連接設定
-export const client = new pg.Client({
+const client = new pg.Client({
 	user: 'postgres',
 	host: 'localhost',
 	database: 'postgres',
@@ -15,3 +15,5 @@ export const client = new pg.Client({
 client.connect()
 	.then(() => console.log('Connected to the database'))
 	.catch(err => console.error('Connection error', err.stack));
+
+export default client;

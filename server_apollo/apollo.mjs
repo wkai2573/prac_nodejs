@@ -4,19 +4,8 @@ import {startStandaloneServer} from '@apollo/server/standalone';
 // 引用.env
 import "dotenv/config.js";
 
-// The GraphQL schema
-const typeDefs = `#graphql
-  type Query {
-    hello: String
-		me: Me
-  }
-
-	type Me {
-		id: ID
-		name: String!
-		tags: [String]
-	}
-`;
+// 導入 GraphQL schema
+import typeDefs from './schema.mjs';
 
 // A map of functions which return data for the schema.
 const resolvers = {
@@ -24,6 +13,7 @@ const resolvers = {
 		hello: () => 'world',
 		me: () => {
 			return {
+				id: 'uuid_v4',
 				name: 'xdd',
 				tags: ['a', 'b'],
 			};
