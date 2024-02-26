@@ -1,9 +1,9 @@
 // db.js
 
-const { Client } = require('pg');
+import pg from 'pg'
 
 // 設置資料庫連接設定
-const client = new Client({
+export const client = new pg.Client({
 	user: 'postgres',
 	host: 'localhost',
 	database: 'postgres',
@@ -13,7 +13,5 @@ const client = new Client({
 
 // 連接到資料庫
 client.connect()
-  .then(() => console.log('Connected to the database'))
-  .catch(err => console.error('Connection error', err.stack));
-
-module.exports = client;
+	.then(() => console.log('Connected to the database'))
+	.catch(err => console.error('Connection error', err.stack));

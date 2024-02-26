@@ -1,13 +1,13 @@
-const express = require('express');
+import express from "express";
 const app = express();
-const port = 5001;
+const port = 3000;
 
-const client = require('./db'); // 導入 PostgreSQL 客戶
+import {client} from './postgres.mjs'; // 導入 PostgreSQL 客戶
 
-
-app.get('/', (req, res) => {
-	res.send('hello');
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
+
 
 app.get('/json', (req, res) => {
 	res.send({a: 'b', c: 'd'});
@@ -30,10 +30,8 @@ app.get('/users', (req, res) => {
 	});
 });
 
-
-// 開始監聽端口
-const server = app.listen(port, () => {
-	// console.log(`Server is running on port ${port}`);
-	const serverUrl = `http://localhost:${server.address().port}`;
-  console.log(`Server is running on ${serverUrl}`);
+// 開啟server
+app.listen(port, () => {
+	console.log(`Server is running on port ${port}`);
+	console.log(`Server is running on http://localhost:${port}`);
 });
