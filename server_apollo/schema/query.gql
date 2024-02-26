@@ -1,17 +1,15 @@
 type Query {
 	"""return "world"."""
 	hello: String
+	hello2: String
+	hello3(
+		"return name"
+		name: String
+	): String
+
+	"Get service info."
+  service: ServiceInfo!
 
 	"Get current user informations, and permissions."
 	me: Me
-}
-
-"""Current user information."""
-type Me {
-	"User id."
-	id: ID!
-	"User name."
-	name: String!
-	"User tags."
-	tags: [String]
 }

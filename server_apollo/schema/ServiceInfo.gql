@@ -1,0 +1,8 @@
+type ServiceInfo {
+	
+  "Service name."
+  service: String!
+
+  "Service version."
+  version: String!
+}

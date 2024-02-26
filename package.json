@@ -2,11 +2,11 @@
   "name": "express-demo",
   "version": "1.0.0",
   "description": "",
-  "main": "server_apollo/apollo.mjs",
+  "main": "server_apollo/index.mjs",
   "main2": "server_express/index.mjs",
   "scripts": {
     "start": "node index.js",
-    "apollo": "node server_apollo/apollo.mjs",
+    "apollo": "node server_apollo/index.mjs",
     "express": "node server_express/index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
