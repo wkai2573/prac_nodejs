@@ -42,6 +42,9 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# env
+.env
+
 # References
 _參考資料
 _parsers
