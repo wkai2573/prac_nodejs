@@ -1,0 +1,23 @@
+"User"
+type User {
+	"User Id"
+  id: ID!
+
+	"User account"
+	account: String!
+
+  "User name"
+  name: String!
+}
+
+type UserCreate {
+
+}
+
+type UserUpdate {
+	
+}
+
+type UserDelete {
+
+}
