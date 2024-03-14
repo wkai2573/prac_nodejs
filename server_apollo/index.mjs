@@ -5,8 +5,8 @@ import {startStandaloneServer} from '@apollo/server/standalone';
 import "dotenv/config.js";
 
 // 導入 GraphQL schema & resolver
-import typeDefs from './schema.mjs';
-import resolvers from './resolver.mjs';
+import typeDefs from './gql/schema.mjs';
+import resolvers from './gql/resolver.mjs';
 
 const server = new ApolloServer({
 	typeDefs,

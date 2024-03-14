@@ -10,14 +10,11 @@ type User {
   name: String!
 }
 
-type UserCreate {
+"User create."
+input InputUser {
+	"User account"
+	account: String!
 
-}
-
-type UserUpdate {
-	
-}
-
-type UserDelete {
-
+  "User name"
+  name: String!
 }

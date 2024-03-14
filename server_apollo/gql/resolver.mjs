@@ -1,5 +1,6 @@
 import Query from './resolver/Query.mjs';
-// import Mutation from './resolver/Mutation.mjs';
+import Mutation from './resolver/Mutation.mjs';
+// import scalars from './scalars/index.mjs';
 
 
 export default {
@@ -8,7 +9,7 @@ export default {
   // ScalarUpload: scalars.ScalarUpload,
 
 	Query,
-	// Mutation,
+	Mutation,
 
 	// 其他type...
 };

@@ -1,0 +1,23 @@
+type Mutation {
+
+	#####################
+	## User Operations ##
+	#####################
+
+	"Create a new user."
+  userCreate(
+    input: InputUser!
+  ): User!
+
+  "Update an exist user."
+  userUpdate(
+    input: InputUser!
+  ): User!
+
+  "Delete an exist user, return deleted user id."
+  userDelete(
+    "User ID."
+    id: ID!
+  ): String!
+
+}
