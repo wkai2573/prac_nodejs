@@ -1,3 +1,23 @@
+# 待研究方向
+
+1. ~~gql加入scalar_UUID~~
+2. gql的resolver fn， 使用db查詢
+3. 做前端server 可呼叫 後端:5001的資料
+4. gql 後端上傳
+5. gql 前端上傳
+
+
+
+# 測試方式
+
+1. 在js檔中按下F5測試 (結束即關閉server)
+2. npm start (關閉server需要另外指令)
+3. npm run /script/ (關閉server需要另外指令)
+
+
+
+
+
 # Links
 
 * [GraphQL 入門：初次實作 Schema 與 Resolver](https://ithelp.ithome.com.tw/articles/10203333)
@@ -6,9 +26,3 @@
 * [使用express中介](https://www.apollographql.com/docs/apollo-server/api/standalone/#swapping-to-expressmiddleware)
 * [配置CORS(跨來源資源共享)](https://www.apollographql.com/docs/apollo-server/security/cors/)
 
-# 筆記
-
-### 測試方式
-1. 在js檔中按下F5測試 (結束即關閉server)
-2. npm start (關閉server需要另外指令)
-3. npm run /script/ (關閉server需要另外指令)

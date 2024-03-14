@@ -1,7 +1,7 @@
 "User"
 type User {
 	"User Id"
-  id: ID!
+  id: ScalarUUID!
 
 	"User account"
 	account: String!

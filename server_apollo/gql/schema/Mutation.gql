@@ -17,7 +17,7 @@ type Mutation {
   "Delete an exist user, return deleted user id."
   userDelete(
     "User ID."
-    id: ID!
+    id: ScalarUUID!
   ): String!
 
 }

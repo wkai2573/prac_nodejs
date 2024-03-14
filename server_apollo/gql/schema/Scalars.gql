@@ -1,0 +1,8 @@
+"UUID"
+scalar ScalarUUID
+
+"ISO date-time string in UTC."
+scalar ScalarDate
+
+"Upload file."
+scalar ScalarUpload

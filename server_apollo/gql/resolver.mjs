@@ -1,10 +1,10 @@
 import Query from './resolver/Query.mjs';
 import Mutation from './resolver/Mutation.mjs';
-// import scalars from './scalars/index.mjs';
+import * as scalars from './scalars/index.mjs';
 
 
 export default {
-	// ScalarUUID: scalars.ScalarUUID,
+	ScalarUUID: scalars.ScalarUUID,
   // ScalarDate: scalars.ScalarDate,
   // ScalarUpload: scalars.ScalarUpload,
 

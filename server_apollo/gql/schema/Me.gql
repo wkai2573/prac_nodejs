@@ -2,7 +2,7 @@
 type Me {
 
 	"User id."
-	id: ID!
+	id: ScalarUUID!
 
 	"User name."
 	name: String!
