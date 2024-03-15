@@ -1,8 +1,10 @@
 import express from "express";
 const app = express();
-const port = 3000;
 
-import {default as client} from './postgres.mjs'; // 導入 PostgreSQL 客戶
+import "dotenv/config.js"; // 引用.env
+const port = process.env.PORT;
+
+import {client} from './postgres.mjs'; // 導入 PostgreSQL 客戶
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

@@ -18,4 +18,4 @@ const typeDefs = fs.readdirSync(schemaPath)
 	.join('\n');
 
 // export default makeExecutableSchema(typeDefs, resolvers);
-export default typeDefs;
+export {typeDefs};

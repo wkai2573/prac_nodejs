@@ -7,11 +7,20 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "啟動程式",
+			"name": "啟動程式_apollo",
 			"skipFiles": [
 				"<node_internals>/**"
 			],
 			"program": "${workspaceFolder}\\server_apollo\\index.mjs"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "啟動程式_express",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"program": "${workspaceFolder}\\server_express\\index.mjs"
 		}
 	]
 }
