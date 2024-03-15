@@ -2,10 +2,11 @@
 
 1. ~~gql加入scalar_UUID~~
 2. ~~gql中介~~
-3. gql的resolver fn， 使用db查詢
-4. 做前端server 可呼叫 後端:5001的資料
-5. gql 後端上傳
-6. gql 前端上傳
+3. gql中介 擋Authorization Header
+4. gql的resolver fn， 使用db查詢
+5. 做前端server 可呼叫 後端:5001的資料
+6. gql 後端上傳
+7. gql 前端上傳
 
 
 
