@@ -1,7 +1,7 @@
 # 待研究方向
 
 1. ~~gql加入scalar_UUID~~
-2. gql中介
+2. ~~gql中介~~
 3. gql的resolver fn， 使用db查詢
 4. 做前端server 可呼叫 後端:5001的資料
 5. gql 後端上傳
