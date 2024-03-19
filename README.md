@@ -2,7 +2,9 @@
 
 1. ~~gql加入scalar_UUID~~
 2. ~~gql中介~~
-3. gql中介 擋Authorization Header
+3. 實作中介驗證步驟
+   1. 登入: Log > Server
+   2. 取資料: Log > Auth > Server (模擬未登入回傳錯誤)
 4. gql的resolver fn， 使用db查詢
 5. 做前端server 可呼叫 後端:5001的資料
 6. gql 後端上傳
