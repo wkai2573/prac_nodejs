@@ -1,4 +1,5 @@
-import service from './Query/service.js';
+import {service} from './Query/service.js';
+import * as user from './Query/user.mjs';
 import * as hello from './Query/hello.mjs';
 import * as me from './Query/me.mjs';
 // import * as role from './Query/role.mjs';
@@ -11,7 +12,8 @@ import * as me from './Query/me.mjs';
 
 export default {
 	service,
-
+	...user,
+	
 	...hello,
 	...me,
 

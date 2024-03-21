@@ -11,10 +11,28 @@ type User {
 }
 
 "User create."
-input InputUser {
+input InputUserCreate {
 	"User account"
 	account: String!
 
   "User name"
   name: String!
+
+	"User password"
+	password: String!
+}
+
+"User update."
+input InputUserUpdate {
+  "User name"
+  name: String!
+
+	"User password"
+	password: String!
+}
+
+"登入User & token"
+type UserLoginData {
+  token: String
+  user: User
 }

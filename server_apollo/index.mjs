@@ -2,7 +2,8 @@ import {formatError} from './gql/extended_error/extended_error.mjs';
 
 
 import "dotenv/config.js"; // 引用.env
-const {env: {PORT: port}} = process;
+const env = process.env;
+const port = env.port;
 
 // 連線DB
 import {DbAction} from './db/db_action.mjs';
@@ -30,38 +31,23 @@ const app = express();
 const httpServer = http.createServer(app);
 
 
-// 定义中间件函数以验证登录状态
-// const authMiddleware = async (requestContext) => {
-// 	console.log('Request started!');
-
-// 	return {
-// 		async parsingDidStart(requestContext) {
-// 			console.log('Parsing started!');
-// 		},
-
-// 		async validationDidStart(requestContext) {
-// 			console.log('Validation started!');
-// 		},
-// 	};
-// };
-
+// ApolloServer
 const server = new ApolloServer({
 	typeDefs,
 	resolvers,
 	formatError,
 	plugins: [
 		ApolloServerPluginDrainHttpServer({httpServer}),
-		// {requestDidStart: authMiddleware}, 
 	],
 });
-
-// 啟動ApolloServer
 await server.start();
 
 
-// 設定中介。 參考 https://hackmd.io/@Heidi-Liu/note-be201-express-middleware
+// 設定中介, 參考 https://hackmd.io/@Heidi-Liu/note-be201-express-middleware
 app.use(
+	// 指定路由
 	'/gql',
+
 	// 跨域設定: 允許指定domain可存取此server資料, 無參數則是全允許
 	cors({
 		origin: function (origin, callback) {
@@ -72,11 +58,16 @@ app.use(
 			}
 		}
 	}),
+
 	// 請求大小限制
 	bodyParser.json({limit: '10mb'}),
-	// expressMiddleware 接受相同的參數：Apollo Server 執行個體和可選的設定選項
+
+	// 使用中介後, startStandaloneServer的context 要改用 expressMiddleware(server, context)
+	// context 的return = resolver的第三參數
 	expressMiddleware(server, {
-		context: async ({req}) => ({token: req.headers.token}),
+		context: async ({req, res}) => {
+			return {req, res, db};
+		},
 	}),
 );
 

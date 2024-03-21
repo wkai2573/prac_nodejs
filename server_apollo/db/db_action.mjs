@@ -4,6 +4,7 @@ import {config} from './config.mjs';
 class DbAction {
 	constructor() {
 		this.client = new pg.Client(config.postgres);
+		this.connect();
 	}
 
 	async connect() {
@@ -24,15 +25,15 @@ class DbAction {
 		}
 	}
 
-	async query(sql, params) {
-		try {
-			const result = await this.client.query(sql, params);
-			return result.rows;
-		} catch (error) {
-			console.error('Error executing query:', error);
-			throw error;
-		}
-	}
+	// async query(sql, params) {
+	// 	try {
+	// 		const result = await this.client.query(sql, params);
+	// 		return result.rows;
+	// 	} catch (error) {
+	// 		console.error('Error executing query:', error);
+	// 		throw error;
+	// 	}
+	// }
 }
 
 export {DbAction};

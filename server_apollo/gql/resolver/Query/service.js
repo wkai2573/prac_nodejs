@@ -1,7 +1,9 @@
 const pkg = require('../../../../package.json');
 
-const { name: service, version } = pkg;
+const {name: serviceName, version} = pkg;
 
-module.exports = () => ({
-  service, version
-});
+function service(parent, args, context, info) {
+	return {service: serviceName, version};
+}
+
+module.exports = {service};

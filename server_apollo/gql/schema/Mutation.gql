@@ -1,23 +1,29 @@
 type Mutation {
 
-	#####################
-	## User Operations ##
-	#####################
+	# Login__________________________________________________
+
+	"Login"
+	login(
+		account:String!,
+		password:String!,
+	): UserLoginData!
+
+	# User__________________________________________________
 
 	"Create a new user."
   userCreate(
-    input: InputUser!
+    input: InputUserCreate!,
   ): User!
 
   "Update an exist user."
   userUpdate(
-    input: InputUser!
+    input: InputUserUpdate!,
   ): User!
 
   "Delete an exist user, return deleted user id."
   userDelete(
     "User ID."
-    id: ScalarUUID!
+    id: ScalarUUID!,
   ): String!
 
 }

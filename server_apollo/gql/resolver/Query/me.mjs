@@ -1,6 +1,6 @@
 import {UnknownError} from "../../extended_error/extended_error.mjs";
 
-export async function me() {
+export async function me(parent, args, context, info) {
 
 	// const error = new UnknownError("XX");
 	// throw error;
