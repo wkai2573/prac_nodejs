@@ -6,7 +6,7 @@ export async function login(parent, args, context, info) {
 	// 取得user
 	const query = 'SELECT * FROM prac.users WHERE account = $1';
 	const values = [account];
-	const result = await context.db.client.query(query, values);
+	const result = await context.db.pool.query(query, values);
 	const user = result.rows?.[0];
 	if (!user) {
 		throw new Error('No such user found')

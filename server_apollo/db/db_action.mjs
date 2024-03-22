@@ -3,13 +3,13 @@ import {config} from './config.mjs';
 
 class DbAction {
 	constructor() {
-		this.client = new pg.Client(config.postgres);
+		this.pool = new pg.Pool(config.postgres);
 		this.connect();
 	}
 
 	async connect() {
 		try {
-			await this.client.connect();
+			await this.pool.connect();
 			console.log('Connected to PostgreSQL database');
 		} catch (error) {
 			console.error('Error connecting to PostgreSQL database:', error);
@@ -18,7 +18,7 @@ class DbAction {
 
 	async disconnect() {
 		try {
-			await this.client.end();
+			await this.pool.end();
 			console.log('Disconnected from PostgreSQL database');
 		} catch (error) {
 			console.error('Error disconnecting from PostgreSQL database:', error);
@@ -27,7 +27,7 @@ class DbAction {
 
 	// async query(sql, params) {
 	// 	try {
-	// 		const result = await this.client.query(sql, params);
+	// 		const result = await this.pool.query(sql, params);
 	// 		return result.rows;
 	// 	} catch (error) {
 	// 		console.error('Error executing query:', error);

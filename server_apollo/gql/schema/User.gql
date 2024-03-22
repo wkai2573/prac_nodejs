@@ -25,10 +25,10 @@ input InputUserCreate {
 "User update."
 input InputUserUpdate {
   "User name"
-  name: String!
+  name: String
 
 	"User password"
-	password: String!
+	password: String
 }
 
 "登入User & token"

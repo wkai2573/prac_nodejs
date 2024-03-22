@@ -17,6 +17,8 @@ type Mutation {
 
   "Update an exist user."
   userUpdate(
+		"User Id"
+		id: ScalarUUID!,
     input: InputUserUpdate!,
   ): User!
 

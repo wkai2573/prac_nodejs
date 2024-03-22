@@ -12,9 +12,8 @@ export async function userCreate(parent, args, context, info) {
 			name,
 			bcrypt.hashSync(password, 10),
 		];
-		const result = await context.db.client.query(query, values);
+		const result = await context.db.pool.query(query, values);
 		const newUser = result.rows[0];
-		// 傳回新user
 		return newUser;
 	} catch (error) {
 		console.error('Error inserting data:', error);
@@ -22,18 +21,39 @@ export async function userCreate(parent, args, context, info) {
 	}
 }
 
-//!
 export async function userUpdate(parent, args, context, info) {
-	const {input} = args;
-	return {
-		id: 'newId',
-		account: input?.account ?? 'old_account',
-		name: input?.name ?? 'old_name',
-	};
+	//! 驗證登入
+	const {id, input} = args;
+	if (input.password) input.password = bcrypt.hashSync(input.password, 10);
+
+	try {
+		var i = 1;
+		const setClause = Object.keys(input).map(key => `${key} = $${i++}`).join(',');
+		const query = `
+			UPDATE prac.users
+			SET ${setClause}
+			WHERE id = $${i++}
+			RETURNING *`;
+		const values = [...Object.values(input), id];
+		const result = await context.db.pool.query(query, values);
+		const user = result.rows[0];
+		return user;
+	} catch (error) {
+		console.error('Error updating user:', error);
+		throw error;
+	}
 }
 
-//!
 export async function userDelete(parent, args, context, info) {
+	//! 驗證登入
 	const {id} = args;
-	return `ok, ${id} has been deleted.`;
+	try {
+		const query = 'DELETE FROM prac.users WHERE id = $1';
+		const values = [id];
+		const result = await context.db.pool.query(query, values);
+		return 'ok';
+	} catch (error) {
+		console.error('Error deleting user:', error);
+		throw error;
+	}
 }
