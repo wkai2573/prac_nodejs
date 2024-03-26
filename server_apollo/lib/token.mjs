@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import {NoAccessToken} from './extended_error/extended_error.mjs';
+import {NoAccessToken, InvalidToken, UnsupportedToken} from './extended_error/extended_error.mjs';
 import "dotenv/config.js"; // 引用.env
 const env = process.env;
 
@@ -37,7 +37,7 @@ function verifyLogin({req, res}) {
 		const decoded = verifyToken(token);
 		return decoded;
 	} catch (error) {
-		throw new NoAccessToken();
+		throw new InvalidToken();
 	}
 }
 
