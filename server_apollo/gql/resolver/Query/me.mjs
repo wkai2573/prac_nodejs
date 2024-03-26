@@ -1,4 +1,4 @@
-import {UnknownError} from "../../extended_error/extended_error.mjs";
+import {UnknownError} from "../../../lib/extended_error/extended_error.mjs";
 
 export async function me(parent, args, context, info) {
 

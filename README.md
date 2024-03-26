@@ -3,11 +3,11 @@
 1. ~~gql加入scalar_UUID~~
 2. ~~gql中介~~
 3. ~~gql的resolver fn， 使用db查詢~~
-4. 實作中介驗證步驟
+4. ~~實作中介驗證步驟~~
    1. ~~登入: Log > Server~~
       1. [login.mjs](server_apollo/gql/resolver/Mutation/login.mjs)
       2. [token.mjs](server_apollo/lib/token.mjs)
-   2. 取資料: Log > Auth > Server (模擬未登入回傳錯誤)
+   2. ~~取資料: Log > Auth > Server (模擬未登入回傳錯誤)~~
 5. 做前端server 可呼叫 後端:5001的資料
 6. gql 後端上傳
 7. gql 前端上傳

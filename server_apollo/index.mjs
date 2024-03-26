@@ -1,4 +1,4 @@
-import {formatError} from './gql/extended_error/extended_error.mjs';
+import {formatError} from './lib/extended_error/extended_error.mjs';
 
 
 import "dotenv/config.js"; // 引用.env

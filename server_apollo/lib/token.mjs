@@ -1,9 +1,10 @@
 import jwt from 'jsonwebtoken';
+import {NoAccessToken} from './extended_error/extended_error.mjs';
 import "dotenv/config.js"; // 引用.env
 const env = process.env;
 
 const secretKey = env.JWT_KEY;
-const tokenTTL = 86400 * 30; // second
+const tokenTTL = '30d';
 
 /**
  * @param {string | Buffer | object} payload 
@@ -16,10 +17,29 @@ function signToken(payload) {
 
 /**
  * @param {string} token 
- * @returns {Jwt} jwt
+ * @returns {Jwt} jwt decoded
  */
 function verifyToken(token) {
-	return jwt.verify(token, secretKey);
+	const decoded = jwt.verify(token, secretKey);
+	return decoded;
 }
 
-export {signToken, verifyToken};
+
+/** 驗證登入
+ * @param {object} Context
+ * @returns {object} jwt decoded
+ */
+function verifyLogin({req, res}) {
+	const authHeader = req.headers.authorization;
+	if (!authHeader) throw new NoAccessToken();
+	const token = authHeader.replace(/^(Bearer )?(.*)$/, '$2');
+	try {
+		const decoded = verifyToken(token);
+		return decoded;
+	} catch (error) {
+		throw new NoAccessToken();
+	}
+}
+
+
+export {signToken, verifyToken, verifyLogin};

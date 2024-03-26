@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
 
 export async function userCreate(parent, args, context, info) {
-	//! 驗證登入
+	const decoded = verifyLogin(context);
 	const {input: {account, name, password}} = args;
 	
 	// 新增user 寫入db
@@ -17,7 +17,7 @@ export async function userCreate(parent, args, context, info) {
 }
 
 export async function userUpdate(parent, args, context, info) {
-	//! 驗證登入
+	const decoded = verifyLogin(context);
 	const {id, input} = args;
 	if (input.password) input.password = bcrypt.hashSync(input.password, 10);
 
@@ -35,7 +35,7 @@ export async function userUpdate(parent, args, context, info) {
 }
 
 export async function userDelete(parent, args, context, info) {
-	//! 驗證登入
+	const decoded = verifyLogin(context);
 	const {id} = args;
 	const query = 'DELETE FROM prac.users WHERE id = $1';
 	const values = [id];
